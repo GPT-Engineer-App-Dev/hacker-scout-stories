@@ -24,8 +24,8 @@ const Index = () => {
   ) || [];
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">Hacker News Top 100</h1>
+    <div className="min-h-screen bg-blue-100 p-8">
+      <h1 className="text-4xl font-bold mb-8 text-center text-blue-800">Hacker News Top 100</h1>
       
       <div className="mb-6 flex justify-center">
         <div className="relative w-full max-w-md">
@@ -34,9 +34,9 @@ const Index = () => {
             placeholder="Search stories..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pr-10"
+            className="pr-10 border-blue-300 focus:border-blue-500 focus:ring-blue-500"
           />
-          <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+          <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400" />
         </div>
       </div>
 
@@ -44,8 +44,8 @@ const Index = () => {
         <div className="space-y-4">
           {[...Array(10)].map((_, index) => (
             <div key={index} className="bg-white p-4 rounded-lg shadow animate-pulse">
-              <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+              <div className="h-4 bg-blue-200 rounded w-3/4 mb-2"></div>
+              <div className="h-4 bg-blue-200 rounded w-1/4"></div>
             </div>
           ))}
         </div>
@@ -56,15 +56,15 @@ const Index = () => {
       {!isLoading && !error && (
         <div className="space-y-4">
           {filteredStories.map((story) => (
-            <div key={story.objectID} className="bg-white p-4 rounded-lg shadow">
-              <h2 className="text-xl font-semibold mb-2">{story.title}</h2>
-              <p className="text-gray-600 mb-2">Upvotes: {story.points}</p>
+            <div key={story.objectID} className="bg-white p-4 rounded-lg shadow border border-blue-200">
+              <h2 className="text-xl font-semibold mb-2 text-blue-700">{story.title}</h2>
+              <p className="text-blue-600 mb-2">Upvotes: {story.points}</p>
               <Button
                 as="a"
                 href={story.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="outline"
+                className="bg-blue-500 text-white hover:bg-blue-600"
               >
                 Read More
               </Button>
